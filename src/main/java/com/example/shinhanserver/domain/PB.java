@@ -1,7 +1,7 @@
 package com.example.shinhanserver.domain;
 
-import jakarta.persistence.*;
 import java.util.*;
+import javax.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
