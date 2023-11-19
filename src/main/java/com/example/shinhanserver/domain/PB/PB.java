@@ -1,7 +1,12 @@
-package com.example.shinhanserver.domain;
+package com.example.shinhanserver.domain.PB;
 
 import java.util.*;
 import javax.persistence.*;
+
+import com.example.shinhanserver.domain.calendar.Calendar;
+import com.example.shinhanserver.domain.Career;
+import com.example.shinhanserver.domain.Certification;
+import com.example.shinhanserver.domain.Education;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,9 +44,8 @@ public class PB {
 
   private BigDecimal profit;
 
-  @OneToOne
-  @JoinColumn(name = "calendar_id")
-  private Calendar calendar;
+  @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<Calendar> CalendarList = new ArrayList<>();
 
   @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Education> EducationList = new ArrayList<>();
