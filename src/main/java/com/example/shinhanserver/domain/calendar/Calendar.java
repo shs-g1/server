@@ -33,7 +33,8 @@ public class Calendar {
   private PB pb;
 
   @Builder
-  public Calendar(LocalDate date, LocalTime time, String schedule){
+  public Calendar(PB pb, LocalDate date, LocalTime time, String schedule){
+    this.pb = pb;
     this.date = date;
     this.time = time;
     this.schedule = schedule;

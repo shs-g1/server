@@ -7,9 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RequestMapping("/workspace")
@@ -17,10 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class WorkspaceController {
 
   private final CalendarService calendarService;
-
   @PostMapping("/calendar")
-  public ResponseEntity<CalendarResponseDto> createReport(@RequestBody CalendarRequestDto calendarDto) {
-    return ResponseEntity.status(HttpStatus.OK).body(calendarService.addSchedule(calendarDto));
+  public ResponseEntity<CalendarResponseDto> createCalendar(@RequestBody CalendarRequestDto calendarDto, @RequestParam Long pbId) {
+    return ResponseEntity.status(HttpStatus.OK).body(calendarService.addSchedule(calendarDto, pbId));
   }
 
 }
