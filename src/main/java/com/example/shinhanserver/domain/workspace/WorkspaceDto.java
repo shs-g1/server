@@ -1,11 +1,22 @@
 package com.example.shinhanserver.domain.workspace;
 
-import com.example.shinhanserver.domain.calendar.CalendarRequestDto;
+import com.example.shinhanserver.domain.PB.PBClientDto;
 import com.example.shinhanserver.domain.calendar.CalendarResponseDto;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+import java.util.List;
+
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class WorkspaceDto {
-  private CalendarRequestDto calendarRequestDto;
-  private CalendarResponseDto calendarResponseDto;
-//  private ClientRequestDto clientRequestDto;
-//  private ClientResponseDto clientResponseDto;
+
+  private List<CalendarResponseDto> calendarResponseDto;
+  private List<PBClientDto> clientResponseDto;
+  private double incentive;
+
 }

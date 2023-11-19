@@ -15,9 +15,16 @@ import org.springframework.web.bind.annotation.*;
 public class WorkspaceController {
 
   private final CalendarService calendarService;
+  private final WorkspaceService workspaceService;
+
   @PostMapping("/calendar")
   public ResponseEntity<CalendarResponseDto> createCalendar(@RequestBody CalendarRequestDto calendarDto, @RequestParam Long pbId) {
     return ResponseEntity.status(HttpStatus.OK).body(calendarService.addSchedule(calendarDto, pbId));
+  }
+
+  @GetMapping
+  public ResponseEntity<WorkspaceDto> getWorkSpace(@RequestParam Long pbId) {
+    return ResponseEntity.status(HttpStatus.OK).body(workspaceService.getWorkspaceInfo(pbId));
   }
 
 }

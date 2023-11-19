@@ -38,6 +38,23 @@ public class PBService {
     return pbClientDtoList;
   }
 
+  public double calculateIncentive(Long pbId) {
+    List<Client> clients = getClientsByPBId(pbId);
+
+    double sum = clients.stream()
+            .mapToDouble(this::calculateProfits)
+            .sum();
+
+    return sum * 0.01;
+  }
+
+  public double calculateProfits(Client client) {
+    double totalAssets = client.getCurrentTotalAssets();
+    double initialAssets = client.getInitAsset();
+    return totalAssets - initialAssets;
+  }
+
+
   public double calculateProfitRate(double initialTotalAsset, double currentTotalAsset) {
     if (initialTotalAsset == 0) {   // 추후 수정
       return 0;
