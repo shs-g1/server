@@ -1,12 +1,16 @@
 package com.example.shinhanserver.domain;
 
 import javax.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Getter
 @Entity
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor(access= AccessLevel.PROTECTED)
 @Table(name = "career")
 public class Career {
@@ -22,6 +26,10 @@ public class Career {
 
   private String organization;
 
-  private String period;
+  private String location;
+
+  private LocalDate start_date;
+
+  private LocalDate end_date;
 
 }

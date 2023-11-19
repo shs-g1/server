@@ -25,7 +25,7 @@ public class LoginController {
             LoginDto.LoginResponseDto loginResponseDto = loginService.login(loginDto);
 
             Map<String, Object> payload = new HashMap<>();
-            payload.put("pbId", loginResponseDto);
+            payload.put("login", loginResponseDto);
 
             ResponseDto responseBody = ResponseDto.builder()
                     .payload(payload)

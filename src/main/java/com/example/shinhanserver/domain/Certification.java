@@ -1,14 +1,15 @@
 package com.example.shinhanserver.domain;
 
 import javax.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Getter
 @Entity
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor(access= AccessLevel.PROTECTED)
 @Table(name = "certification")
 public class Certification {
