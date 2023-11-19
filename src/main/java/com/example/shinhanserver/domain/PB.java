@@ -39,6 +39,10 @@ public class PB {
 
   private BigDecimal profit;
 
+  private String loginId;
+
+  private String loginPw;
+
   @OneToOne
   @JoinColumn(name = "calendar_id")
   private Calendar calendar;
