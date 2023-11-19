@@ -6,6 +6,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -27,6 +30,13 @@ public class CalendarService {
             .build();
 
     return new CalendarResponseDto(calendarRepository.save(calendar));
+  }
+
+  public List<CalendarResponseDto> getCalendar(Long pbId){
+    PB pb = pbService.findPBById(pbId);
+    return calendarRepository.findByPb(pb).stream()
+            .map(CalendarResponseDto::new)
+            .collect(Collectors.toList());
   }
 
 }
