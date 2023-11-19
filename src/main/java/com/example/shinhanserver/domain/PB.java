@@ -2,14 +2,15 @@ package com.example.shinhanserver.domain;
 
 import java.util.*;
 import javax.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+
+import lombok.*;
 
 import java.math.BigDecimal;
 
 @Getter
 @Entity
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor(access= AccessLevel.PROTECTED)
 @Table(name = "pb")
 public class PB {
@@ -38,6 +39,12 @@ public class PB {
   private BigDecimal cumulativeReturn;
 
   private BigDecimal profit;
+
+  private String loginId;
+
+  private String loginPw;
+
+  private String image;
 
   @OneToOne
   @JoinColumn(name = "calendar_id")
