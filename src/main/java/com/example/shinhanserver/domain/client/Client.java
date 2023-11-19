@@ -41,5 +41,10 @@ public class Client {
 
   private double targetProfitRate;
 
+  public double getCurrentTotalAssets() {
+    return AccountList.stream()
+            .mapToDouble(Account::getTotalAssets)
+            .sum();
+  }
 
 }
