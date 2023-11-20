@@ -1,6 +1,5 @@
 package com.example.shinhanserver.domain.entity;
 
-
 import lombok.*;
 
 import javax.persistence.*;
