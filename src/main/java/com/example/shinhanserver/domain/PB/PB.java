@@ -13,8 +13,6 @@ import lombok.NoArgsConstructor;
 
 import lombok.*;
 
-import java.math.BigDecimal;
-
 @Getter
 @Entity
 @Builder
@@ -40,13 +38,13 @@ public class PB {
 
   private String introduction;
 
-  private int cumulativeClientCount;
+  private Integer cumulativeClientCount;
 
-  private String cumulativeTotalAmount;
+  private double cumulativeTotalAmount;
 
-  private BigDecimal cumulativeReturn;
+  private double cumulativeReturn;
 
-  private BigDecimal profit;
+  private double profit;
 
   @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Calendar> CalendarList = new ArrayList<>();
