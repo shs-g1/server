@@ -20,8 +20,7 @@ public class Product {
 
   private String product_name;
 
-  @OneToOne(mappedBy = "transaction")
-  @Column(name = "transaction_id")
+  @OneToOne(mappedBy = "product")
   private Transaction transaction;
 
 }
