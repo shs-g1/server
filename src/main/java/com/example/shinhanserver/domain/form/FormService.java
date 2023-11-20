@@ -79,6 +79,7 @@ public class FormService {
         for (FormDto.CareerDto careerDto : careerDtos) {
             Career career = Career.builder()
                     .organization(careerDto.getOrganization())
+                    .position(careerDto.getPosition())
                     .start_date(careerDto.getStartDate())
                     .end_date(careerDto.getEndDate())
                     .pb(pb)

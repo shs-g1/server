@@ -51,7 +51,7 @@ public class FormDto {
     @AllArgsConstructor
     public static class CareerDto {
         private String organization;
-        private String location;
+        private String position;
         private LocalDate startDate;
         private LocalDate endDate;
     }

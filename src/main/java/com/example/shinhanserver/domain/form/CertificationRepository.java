@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface CertificationRepository extends JpaRepository<Certification, Long> {
 
-    Optional<Certification> findByPb();
+    //Optional<Certification> findByPb();
 
 }
