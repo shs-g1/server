@@ -37,6 +37,7 @@ public class LoginService {
         if (loginDto.getLoginPw().equals(pb.getLoginPw())) {
             return LoginDto.LoginResponseDto.builder()
                     .pbId(pb.getId())
+                    .pbName(pb.getName())
                     .message("로그인 성공")
                     .build();
         } else {

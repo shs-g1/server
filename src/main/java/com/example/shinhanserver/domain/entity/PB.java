@@ -30,12 +30,6 @@ public class PB {
 
   private String profile;
 
-  private String field1;
-
-  private String field2;
-
-  private String field3;
-
   private String introduction;
 
   private Integer cumulativeClientCount;
@@ -59,12 +53,8 @@ public class PB {
   @JoinColumn(name = "calendar_id")
   private Calendar calendar;
 
-  @OneToOne
-  @JoinColumn(name = "specialization_id")
-  private Specialization specialization;
-
-//  @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
-//  private List<Portfolio> portfolioList = new ArrayList<>();
+  @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<Specialization> specializationList = new ArrayList<>();
 
   @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Education> EducationList = new ArrayList<>();

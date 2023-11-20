@@ -19,16 +19,13 @@ public class PBPageDto {
         private String email; // PB Table -> email
         private String image; // PB Table -> image
         private String selfIntroduction; // PB Table -> introduction
-        private int cumulativeClientCount; // PB Table -> cumulative_client_count
-        private int cumulativeTotalAmount; // PB Table -> cumulative_total_amount
-        private int cumulativeTotalProfit; // PB Table -> cumulative_return
+        private int cumulativeClientCount; // PB Table -> cumulative_client_count, 포트폴리오마다의 고객 수 총합
+        private int cumulativeTotalAmount; // PB Table -> cumulative_total_amount, 포트폴리오마다의 평가금액 총합
+        private int cumulativeTotalProfit; // PB Table -> cumulative_return, 포트폴리오에 나타나는 수익률의 총합
         private List<PBPageDto.CertificationDto> certifications; // Certification Table
         private List<PBPageDto.CareerDto> careers; // Career Table
         private List<PBPageDto.EducationDto> educations; // Education Table
         private List<PBPageDto.SpecializationDto> specializations; // Specialization Table
-        private List<PBPageDto.PortfolioDto> portfolios; // Portfolio Table
-        private List<PBPageDto.PortfolioDetailDto> portfolioDetails;
-
     }
 
     @Getter
@@ -74,27 +71,4 @@ public class PBPageDto {
         private LocalDate endDate;
     }
 
-    @Getter
-    @Builder
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class PortfolioDetailDto {
-        private List<String> labels;
-        private List<String> productNames;
-        private List<String> accumRoRs;
-        private List<String> durations;
-        private List<Long> ratios;
-    }
-
-    @Getter
-    @Builder
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class PortfolioDto {
-        private List<String> portfolioNames;
-        private List<Long> principals;
-        private List<Long> returns;
-        private List<Long> cumulativeRORs;
-        private List<String> durations;
-    }
 }
