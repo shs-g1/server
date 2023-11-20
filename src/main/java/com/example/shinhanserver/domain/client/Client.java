@@ -1,11 +1,13 @@
-package com.example.shinhanserver.domain;
+package com.example.shinhanserver.domain.client;
 
 import javax.persistence.*;
+
+import com.example.shinhanserver.domain.Account;
+import com.example.shinhanserver.domain.PB.PB;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,8 +37,14 @@ public class Client {
 
   private String type;
 
-  private BigDecimal currentAsset;
+  private double initAsset;
 
-  private BigDecimal initAsset;
+  private double targetProfitRate;
+
+  public double getCurrentTotalAssets() {
+    return AccountList.stream()
+            .mapToDouble(Account::getTotalAssets)
+            .sum();
+  }
 
 }
