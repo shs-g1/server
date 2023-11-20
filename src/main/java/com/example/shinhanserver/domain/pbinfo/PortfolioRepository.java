@@ -1,4 +1,4 @@
-package com.example.shinhanserver.domain.pbinfo.service;
+package com.example.shinhanserver.domain.pbinfo;
 
 import com.example.shinhanserver.domain.entity.PB;
 import com.example.shinhanserver.domain.entity.Portfolio;

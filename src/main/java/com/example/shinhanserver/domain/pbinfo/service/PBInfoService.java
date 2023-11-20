@@ -5,6 +5,8 @@ import com.example.shinhanserver.domain.entity.*;
 import com.example.shinhanserver.domain.form.CareerRepository;
 import com.example.shinhanserver.domain.form.CertificationRepository;
 import com.example.shinhanserver.domain.form.EducationRepository;
+import com.example.shinhanserver.domain.pbinfo.PortfolioRepository;
+import com.example.shinhanserver.domain.pbinfo.SpecializationRepository;
 import com.example.shinhanserver.domain.pbinfo.TransactionRepository;
 import com.example.shinhanserver.domain.pbinfo.service.dto.CareerDto;
 import com.example.shinhanserver.domain.pbinfo.service.dto.EducationDto;

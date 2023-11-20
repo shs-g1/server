@@ -1,8 +1,6 @@
 package com.example.shinhanserver.domain.entity;
 
 import javax.persistence.*;
-
-import com.example.shinhanserver.domain.entity.PB;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,7 +28,7 @@ public class Career {
 
   private String organization;
 
-  private String location;
+  private String position;
 
   private LocalDate start_date;
 

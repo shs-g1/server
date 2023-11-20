@@ -1,6 +1,5 @@
 package com.example.shinhanserver.domain.pbinfo.service.dto;
 
-import com.example.shinhanserver.domain.pbinfo.PBPageDto;
 import lombok.*;
 
 import java.util.List;
