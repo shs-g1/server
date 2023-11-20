@@ -1,10 +1,15 @@
 package com.example.shinhanserver.domain.client;
 
+import com.example.shinhanserver.domain.Account.Account;
+import com.example.shinhanserver.domain.Account.AccountDto;
+import com.example.shinhanserver.domain.Account.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -12,6 +17,7 @@ import java.util.NoSuchElementException;
 public class ClientService {
 
   private final ClientRepository clientRepository;
+  private final AccountRepository accountRepository;
 
   public ClientDto getClientInfo(Long clientId) {
 
@@ -28,6 +34,23 @@ public class ClientService {
             .totalAssets(client.getCurrentTotalAssets())
             .build();
   }
+
+  public List<AccountDto> getAccountList(Long clientId) {
+    Client client = findClientById(clientId);
+    List<Account> accounts = accountRepository.findByClient(client);
+
+    List<AccountDto> accountDtoList = accounts.stream()
+            .map(account -> AccountDto.builder()
+                    .accountNumber(account.getAccountNumber())
+                    .totalAssets(account.getTotalAssets())
+                    .withdrawalAmount(account.getWithdrawalAmount())
+                    .build())
+            .collect(Collectors.toList());
+
+    return accountDtoList;
+
+  }
+
   public double calculateProfits(Client client) {
     double totalAssets = client.getCurrentTotalAssets();
     double initialAssets = client.getInitAsset();

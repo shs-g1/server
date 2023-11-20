@@ -2,7 +2,7 @@ package com.example.shinhanserver.domain.client;
 
 import javax.persistence.*;
 
-import com.example.shinhanserver.domain.Account;
+import com.example.shinhanserver.domain.Account.Account;
 import com.example.shinhanserver.domain.PB.PB;
 import lombok.AccessLevel;
 import lombok.Getter;

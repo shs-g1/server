@@ -1,7 +1,9 @@
-package com.example.shinhanserver.domain;
+package com.example.shinhanserver.domain.Account;
 
 import javax.persistence.*;
 
+import com.example.shinhanserver.domain.Product;
+import com.example.shinhanserver.transaction.Transaction;
 import com.example.shinhanserver.domain.client.Client;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -27,6 +29,9 @@ public class Account {
 
   @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Transaction> TransactionList = new ArrayList<>();
+
+  @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<Product> ProductList = new ArrayList<>();
 
   private String accountNumber;
 

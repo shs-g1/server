@@ -1,6 +1,8 @@
 package com.example.shinhanserver.domain;
 
 import javax.persistence.*;
+
+import com.example.shinhanserver.domain.Account.Account;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,4 +29,5 @@ public class Product {
   @OneToOne
   @JoinColumn(name = "ticker_id")
   private Ticker ticker;
+
 }
