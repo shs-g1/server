@@ -1,8 +1,9 @@
 package com.example.shinhanserver.domain.client;
 
-import com.example.shinhanserver.domain.Account.Account;
 import com.example.shinhanserver.domain.Account.AccountDto;
 import com.example.shinhanserver.domain.Account.AccountRepository;
+import com.example.shinhanserver.domain.entity.Account;
+import com.example.shinhanserver.domain.entity.Client;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

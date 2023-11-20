@@ -1,18 +1,16 @@
-package com.example.shinhanserver.domain.calendar;
+package com.example.shinhanserver.domain.entity;
 
 import javax.persistence.*;
 
-import com.example.shinhanserver.domain.PB.PB;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Getter
 @Entity
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor(access= AccessLevel.PROTECTED)
 @Table(name = "calendar")
 public class Calendar {

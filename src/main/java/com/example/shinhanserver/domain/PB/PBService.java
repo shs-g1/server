@@ -2,8 +2,9 @@ package com.example.shinhanserver.domain.PB;
 
 import java.util.*;
 
-import com.example.shinhanserver.domain.client.Client;
+import com.example.shinhanserver.domain.entity.Client;
 import com.example.shinhanserver.domain.client.ClientRepository;
+import com.example.shinhanserver.domain.entity.PB;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,12 +1,8 @@
-package com.example.shinhanserver.domain.PB;
+package com.example.shinhanserver.domain.entity;
 
 import java.util.*;
 import javax.persistence.*;
 
-import com.example.shinhanserver.domain.calendar.Calendar;
-import com.example.shinhanserver.domain.Career;
-import com.example.shinhanserver.domain.Certification;
-import com.example.shinhanserver.domain.Education;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,7 +30,11 @@ public class PB {
 
   private String profile;
 
-  private String specialization;
+  private String field1;
+
+  private String field2;
+
+  private String field3;
 
   private String introduction;
 
@@ -58,6 +58,13 @@ public class PB {
   @OneToOne
   @JoinColumn(name = "calendar_id")
   private Calendar calendar;
+
+  @OneToOne
+  @JoinColumn(name = "specialization_id")
+  private Specialization specialization;
+
+//  @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
+//  private List<Portfolio> portfolioList = new ArrayList<>();
 
   @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Education> EducationList = new ArrayList<>();

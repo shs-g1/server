@@ -1,14 +1,10 @@
-package com.example.shinhanserver.service;
+package com.example.shinhanserver.domain.form;
 
-import com.example.shinhanserver.domain.Career;
-import com.example.shinhanserver.domain.Certification;
-import com.example.shinhanserver.domain.Education;
-import com.example.shinhanserver.domain.PB.PB;
+import com.example.shinhanserver.domain.entity.Career;
+import com.example.shinhanserver.domain.entity.Certification;
+import com.example.shinhanserver.domain.entity.Education;
+import com.example.shinhanserver.domain.entity.PB;
 import com.example.shinhanserver.domain.PB.PBRepository;
-import com.example.shinhanserver.dto.FormDto;
-import com.example.shinhanserver.repository.CareerRepository;
-import com.example.shinhanserver.repository.CertificationRepository;
-import com.example.shinhanserver.repository.EducationRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

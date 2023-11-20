@@ -1,19 +1,15 @@
-package com.example.shinhanserver.domain.Account;
+package com.example.shinhanserver.domain.entity;
 
 import javax.persistence.*;
-
-import com.example.shinhanserver.domain.Product;
-import com.example.shinhanserver.transaction.Transaction;
-import com.example.shinhanserver.domain.client.Client;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Entity
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor(access= AccessLevel.PROTECTED)
 @Table(name = "account")
 public class Account {
