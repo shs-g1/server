@@ -25,7 +25,6 @@ public class Transaction {
   private Portfolio portfolio;
 
   @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  @JoinColumn(name = "product_id")
   private Product product;
 
   private int price;

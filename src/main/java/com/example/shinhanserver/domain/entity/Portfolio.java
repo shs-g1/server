@@ -25,6 +25,5 @@ public class Portfolio {
 //    private PB pb;
 
     @OneToMany(mappedBy = "portfolio")
-    @JoinColumn(name = "transaction_id")
     private List<Transaction> transaction;
 }

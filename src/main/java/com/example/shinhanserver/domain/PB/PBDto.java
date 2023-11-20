@@ -1,5 +1,6 @@
 package com.example.shinhanserver.domain.PB;
 
+import com.example.shinhanserver.domain.entity.Specialization;
 import lombok.*;
 
 public class PBDto {
@@ -14,7 +15,7 @@ public class PBDto {
     private String phone;
     private String email;
     private String profile;
-    private String specialization;
+    private Specialization specialization;
     private String introduction;
     private int cumulativeClientCount;
     private double cumulativeTotalAmount;
