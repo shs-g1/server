@@ -1,7 +1,10 @@
-package com.example.shinhanserver.domain;
+package com.example.shinhanserver.domain.calendar;
 
 import javax.persistence.*;
+
+import com.example.shinhanserver.domain.PB.PB;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -23,9 +26,18 @@ public class Calendar {
 
   private LocalTime time;
 
-  private String schedule;
+  private String title;
 
-  @OneToOne(mappedBy = "calendar")
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "pb_id")
   private PB pb;
+
+  @Builder
+  public Calendar(PB pb, LocalDate date, LocalTime time, String title){
+    this.pb = pb;
+    this.date = date;
+    this.time = time;
+    this.title = title;
+  }
 
 }
