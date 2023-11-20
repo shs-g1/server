@@ -1,7 +1,6 @@
 package com.example.shinhanserver.domain.entity;
 
 import javax.persistence.*;
-
 import lombok.*;
 
 import java.util.ArrayList;
@@ -26,6 +25,9 @@ public class Account {
 
   @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Transaction> TransactionList = new ArrayList<>();
+
+  @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<Product> ProductList = new ArrayList<>();
 
   private String accountNumber;
 
