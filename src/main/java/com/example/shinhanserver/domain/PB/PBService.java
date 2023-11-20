@@ -26,7 +26,7 @@ public class PBService {
     List<PBClientDto> pbClientDtoList = clients.stream()
             .map(client -> PBClientDto.builder()
                     .id(client.getId())
-                    .name(client.getName())
+                    .nameAndProfile(Arrays.asList(client.getName(), client.getProfile()))
                     .phone(client.getPhone())
                     .email(client.getEmail())
                     .currentAsset(client.getCurrentTotalAssets())

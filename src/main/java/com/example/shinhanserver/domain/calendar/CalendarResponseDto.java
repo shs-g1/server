@@ -13,12 +13,12 @@ public class CalendarResponseDto {
   private long id;
   private LocalDate date;
   private LocalTime time;
-  private String schedule;
+  private String title;
 
   public CalendarResponseDto(Calendar calendar) {
     this.id = calendar.getId();
     this.date = calendar.getDate();
     this.time = calendar.getTime();
-    this.schedule = calendar.getSchedule();
+    this.title = calendar.getTitle();
   }
 }
