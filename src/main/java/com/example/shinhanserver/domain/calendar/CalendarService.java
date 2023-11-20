@@ -26,7 +26,7 @@ public class CalendarService {
             .pb(pb)
             .date(request.getDate())
             .time(request.getTime())
-            .schedule(request.getSchedule())
+            .title(request.getTitle())
             .build();
 
     return new CalendarResponseDto(calendarRepository.save(calendar));

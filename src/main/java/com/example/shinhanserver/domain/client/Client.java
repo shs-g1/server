@@ -35,6 +35,8 @@ public class Client {
 
   private String email;
 
+  private String profile;
+
   private String type;
 
   private double initAsset;

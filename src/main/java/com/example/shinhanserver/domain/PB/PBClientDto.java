@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 
 @Getter
 @AllArgsConstructor
@@ -13,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class PBClientDto {
 
   private Long id;
-  private String name;
+  private List<String> nameAndProfile;
   private String phone;
   private String email;
   private double currentAsset;

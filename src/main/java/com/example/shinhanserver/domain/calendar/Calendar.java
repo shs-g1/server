@@ -26,18 +26,18 @@ public class Calendar {
 
   private LocalTime time;
 
-  private String schedule;
+  private String title;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "pb_id")
   private PB pb;
 
   @Builder
-  public Calendar(PB pb, LocalDate date, LocalTime time, String schedule){
+  public Calendar(PB pb, LocalDate date, LocalTime time, String title){
     this.pb = pb;
     this.date = date;
     this.time = time;
-    this.schedule = schedule;
+    this.title = title;
   }
 
 }

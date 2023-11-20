@@ -14,6 +14,6 @@ public class CalendarRequestDto {
 
   private LocalDate date;
   private LocalTime time;
-  private String schedule;
+  private String title;
 
 }
