@@ -1,6 +1,7 @@
 package com.example.shinhanserver.domain.client;
 
-import com.example.shinhanserver.domain.PB.PB;
+import com.example.shinhanserver.domain.entity.PB;
+import com.example.shinhanserver.domain.entity.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

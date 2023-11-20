@@ -1,12 +1,8 @@
-package com.example.shinhanserver.domain.PB;
+package com.example.shinhanserver.domain.entity;
 
 import java.util.*;
 import javax.persistence.*;
 
-import com.example.shinhanserver.domain.calendar.Calendar;
-import com.example.shinhanserver.domain.Career;
-import com.example.shinhanserver.domain.Certification;
-import com.example.shinhanserver.domain.Education;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

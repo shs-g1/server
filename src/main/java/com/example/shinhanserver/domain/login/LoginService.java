@@ -1,9 +1,8 @@
-package com.example.shinhanserver.service;
+package com.example.shinhanserver.domain.login;
 
 
-import com.example.shinhanserver.domain.PB.PB;
+import com.example.shinhanserver.domain.entity.PB;
 import com.example.shinhanserver.domain.PB.PBRepository;
-import com.example.shinhanserver.dto.LoginDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,10 +1,6 @@
-package com.example.shinhanserver.controller;
+package com.example.shinhanserver.domain.form;
 
-import com.example.shinhanserver.dto.FormDto;
-import com.example.shinhanserver.dto.LoginDto;
 import com.example.shinhanserver.response.ResponseDto;
-import com.example.shinhanserver.service.FormService;
-import com.example.shinhanserver.service.LoginService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

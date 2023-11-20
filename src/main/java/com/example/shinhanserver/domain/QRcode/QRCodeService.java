@@ -5,7 +5,7 @@ import com.example.shinhanserver.domain.PB.PBService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.example.shinhanserver.domain.PB.PB;
+import com.example.shinhanserver.domain.entity.PB;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;

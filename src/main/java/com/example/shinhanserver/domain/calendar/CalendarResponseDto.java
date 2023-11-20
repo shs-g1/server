@@ -1,5 +1,6 @@
 package com.example.shinhanserver.domain.calendar;
 
+import com.example.shinhanserver.domain.entity.Calendar;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

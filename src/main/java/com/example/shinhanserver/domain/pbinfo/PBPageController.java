@@ -1,7 +1,7 @@
 //package com.example.shinhanserver.controller;
 //
 //
-//import com.example.shinhanserver.dto.PBPageDto;
+//import com.example.shinhanserver.domain.pbinfo.PBPageDto;
 //import com.example.shinhanserver.response.ResponseDto;
 //import com.example.shinhanserver.service.PBPageService;
 //import lombok.RequiredArgsConstructor;

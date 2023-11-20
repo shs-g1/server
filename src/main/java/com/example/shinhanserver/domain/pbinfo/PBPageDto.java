@@ -1,4 +1,4 @@
-package com.example.shinhanserver.dto;
+package com.example.shinhanserver.domain.pbinfo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
