@@ -20,9 +20,13 @@ public class Transaction {
   @JoinColumn(name = "account_id")
   private Account account;
 
-  private String category;
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "portfolio_id")
+  private Portfolio portfolio;
 
-  private String code;
+  @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+  @JoinColumn(name = "product_id")
+  private Product product;
 
   private int price;
 
