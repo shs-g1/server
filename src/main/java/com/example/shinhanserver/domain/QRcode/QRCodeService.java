@@ -1,8 +1,11 @@
 package com.example.shinhanserver.domain.QRcode;
 
+import com.example.shinhanserver.domain.PB.PBDto;
 import com.example.shinhanserver.domain.PB.PBService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import com.example.shinhanserver.domain.PB.PB;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
@@ -10,7 +13,6 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -24,6 +26,8 @@ import java.util.Map;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class QRCodeService {
+
+  private final PBService pbService;
 
   public byte[] generateQRCodeForPbId(Long pbId) throws IOException, WriterException {
     String apiURL = generateApiURL(pbId);
@@ -55,6 +59,25 @@ public class QRCodeService {
     ImageIO.write(image, "png", byteArrayOutputStream);
 
     return byteArrayOutputStream.toByteArray();
+  }
+
+  public PBDto.QRResponseDto getPBInfo(Long pbId) {
+    PB pb = pbService.findPBById(pbId);
+    return PBDto.QRResponseDto.builder()
+            .id(pb.getId())
+            .name(pb.getName())
+            .phone(pb.getPhone())
+            .email(pb.getEmail())
+            .profile(pb.getProfile())
+            .specialization(pb.getSpecialization())
+            .introduction(pb.getIntroduction())
+            .cumulativeClientCount(pb.getCumulativeClientCount())
+            .cumulativeTotalAmount(pb.getCumulativeTotalAmount())
+            .cumulativeReturn(pb.getCumulativeReturn())
+            .profit(pb.getProfit())
+            .image(pb.getImage())
+            .build();
+
   }
 
   private String generateApiURL(Long pbId) {
