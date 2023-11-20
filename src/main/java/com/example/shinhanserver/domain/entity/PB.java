@@ -74,4 +74,7 @@ public class PB {
 
   @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Certification> certificationList = new ArrayList<>();
+
+  @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<Portfolio> portfolioList = new ArrayList<>();
 }

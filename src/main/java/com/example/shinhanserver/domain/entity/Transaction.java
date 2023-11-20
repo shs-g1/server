@@ -5,6 +5,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -32,5 +34,7 @@ public class Transaction {
   private int amount;
 
   private String transactionType;
+
+  private LocalDate transactionDate;
 
 }
