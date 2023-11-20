@@ -11,10 +11,14 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import lombok.*;
+
 import java.math.BigDecimal;
 
 @Getter
 @Entity
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor(access= AccessLevel.PROTECTED)
 @Table(name = "pb")
 public class PB {
@@ -46,6 +50,16 @@ public class PB {
 
   @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Calendar> CalendarList = new ArrayList<>();
+
+  private String loginId;
+
+  private String loginPw;
+
+  private String image;
+
+  @OneToOne
+  @JoinColumn(name = "calendar_id")
+  private Calendar calendar;
 
   @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Education> EducationList = new ArrayList<>();
