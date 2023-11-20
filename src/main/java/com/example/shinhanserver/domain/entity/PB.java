@@ -60,7 +60,7 @@ public class PB {
   private List<Education> EducationList = new ArrayList<>();
 
   @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
-  private List<Career> carrerList = new ArrayList<>();
+  private List<Career> careerList = new ArrayList<>();
 
   @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Certification> certificationList = new ArrayList<>();
