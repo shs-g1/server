@@ -33,9 +33,9 @@ public class PBInfoService {
     private final PortfolioRepository portfolioRepository;
     private final TransactionRepository transactionRepository;
 
-    public PBResponseDto getPBInfo(Long pbid) {
-        PB pb = pbRepository.findById(pbid)
-                .orElseThrow(() -> new EntityNotFoundException("PB not found with ID: " + pbid));
+    public PBResponseDto getPBInfo(Long pbId) {
+        PB pb = pbRepository.findById(pbId)
+                .orElseThrow(() -> new EntityNotFoundException("PB not found with ID: " + pbId));
 
         List<Certification> certificationList = certificationRepository.findAllByPb(pb);
         List<Career> careerList = careerRepository.findAllByPb(pb);
@@ -47,33 +47,32 @@ public class PBInfoService {
                 .map(Specialization::getField)
                 .collect(Collectors.toList());
 
+        String current = null;
+        int tmp_year=0;
         List<CareerDto> experience = new ArrayList<>();
         for (Career career : careerList) {
-            // DateTimeFormatter를 사용하여 문자열로 변환
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            LocalDate start = career.getStart_date();
-            LocalDate end = career.getEnd_date();
-            String formattedStart = start.format(formatter);
-            String formattedEnd = end.format(formatter);
-            String period = formattedStart + " - " + formattedEnd;
+            String startYear = String.valueOf(career.getStart_date().getYear());
+            String endYear = String.valueOf(career.getEnd_date().getYear());
+            String period = startYear + " - " + endYear;
+            
+            if (tmp_year <= career.getEnd_date().getYear()) {
+                current = career.getOrganization() + " " + career.getPosition();
+                tmp_year = career.getEnd_date().getYear();
+            }
 
             CareerDto careerDto = new CareerDto(
                     career.getPosition(),
                     career.getOrganization(),
                     period
             );
-            experience.add(careerDto);
+            experience.add(careerDto);            
         }
 
         List<EducationDto> education = new ArrayList<>();
         for (Education edu : educationList) {
-            // DateTimeFormatter를 사용하여 문자열로 변환
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            LocalDate start = edu.getStart_date();
-            LocalDate end = edu.getEnd_date();
-            String formattedStart = start.format(formatter);
-            String formattedEnd = end.format(formatter);
-            String period = formattedStart + " - " + formattedEnd;
+            String startYear = String.valueOf(edu.getStart_date().getYear());
+            String endYear = String.valueOf(edu.getEnd_date().getYear());
+            String period = startYear + " - " + endYear;
 
             EducationDto educationDto = new EducationDto(
                     edu.getEdu(),
@@ -92,11 +91,10 @@ public class PBInfoService {
         List<String> portfolioNames = new ArrayList<>();
         List<Long> principals = new ArrayList<>();
         List<Long> returns = new ArrayList<>();
-        List<Long> cumulativeRORs = new ArrayList<>();
+        List<Double> cumulativeRORs = new ArrayList<>();
         List<String> durations = new ArrayList<>();
 
         for (Portfolio portfolio: portfolioList) {
-            List<Portfolio> tmpPortfolioList =  portfolioRepository.findAllById(portfolio.getId());
 
             List<Transaction> buyTransactionList = transactionRepository.findAllByPortfolioAndTransactionType(portfolio,"매수");
             List<Transaction> sellTransactionList = transactionRepository.findAllByPortfolioAndTransactionType(portfolio,"매도");
@@ -122,7 +120,7 @@ public class PBInfoService {
                 }
                 principals.add(principal);
                 returns.add(sellPrice-principal);
-                cumulativeRORs.add((sellPrice-principal)/principal * 100);
+                cumulativeRORs.add(((sellPrice-principal)/principal * 100.0));
 
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 String formattedStart = oldestStartDate.format(formatter);
@@ -145,7 +143,7 @@ public class PBInfoService {
         List<String> tmp_portfolioNames = new ArrayList<>();
         List<Long> tmp_principals = new ArrayList<>();
         List<Long> tmp_returns = new ArrayList<>();
-        List<Long> tmp_cumulativeRORs = new ArrayList<>();
+        List<Double> tmp_cumulativeRORs = new ArrayList<>();
         List<String> tmp_durations = new ArrayList<>();
 
         for(Integer i: top3Indexes){
@@ -157,12 +155,12 @@ public class PBInfoService {
             tmp_durations.add(durations.get(i));
         }
 
-        PBResponseDto pbResponseDto = PBResponseDto.builder()
+        return PBResponseDto.builder()
                 .name(pb.getName())
                 .tel(pb.getPhone())
                 .email(pb.getEmail())
                 .imageUrl(pb.getImage())
-                .current("신한투자증권 여의도영업부")
+                .current(current)
                 .specialization(specialization)
                 .introduction(pb.getIntroduction())
                 .customers(pb.getCumulativeClientCount())
@@ -178,9 +176,6 @@ public class PBInfoService {
                 .cumulativeRORs(tmp_cumulativeRORs)
                 .durations(tmp_durations)
                 .build();
-
-
-        return pbResponseDto;
     }
 
 }

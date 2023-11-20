@@ -14,7 +14,9 @@ import java.util.List;
 public class PortfolioDetailDto {
     private List<String> labels;
     private List<String> productNames;
-    private List<String> accumRoRs;
+    private List<Long> realizedGainLoss;
+    private List<Long> evaluatePrice;
+    private List<Double> accumRoRs;
     private List<String> durations;
-    private List<Long> ratios;
+    private List<Double> ratios;
 }

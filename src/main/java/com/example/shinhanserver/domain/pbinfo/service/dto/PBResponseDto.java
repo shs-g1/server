@@ -37,7 +37,7 @@ public class PBResponseDto {
     private List<String> portfolioNames;
     private List<Long> principals;
     private List<Long> returns;
-    private List<Long> cumulativeRORs;
+    private List<Double> cumulativeRORs;
     private List<String> durations;
 
 }
