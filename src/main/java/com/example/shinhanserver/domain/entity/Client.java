@@ -1,9 +1,7 @@
-package com.example.shinhanserver.domain.client;
+package com.example.shinhanserver.domain.entity;
 
 import javax.persistence.*;
 
-import com.example.shinhanserver.domain.Account;
-import com.example.shinhanserver.domain.PB.PB;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package com.example.shinhanserver.domain;
+package com.example.shinhanserver.domain.entity;
 
 import javax.persistence.*;
 import lombok.AccessLevel;
@@ -16,15 +16,12 @@ public class Product {
   @Column(name = "product_id")
   private Long id;
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "account_id")
-  private Account account;
+  private String category;
 
-  @OneToOne
-  @JoinColumn(name = "sector_id")
-  private Sector sector;
+  private String product_name;
 
-  @OneToOne
-  @JoinColumn(name = "ticker_id")
-  private Ticker ticker;
+  @OneToOne(mappedBy = "transaction")
+  @Column(name = "transaction_id")
+  private Transaction transaction;
+
 }

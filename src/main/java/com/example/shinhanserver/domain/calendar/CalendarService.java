@@ -1,7 +1,8 @@
 package com.example.shinhanserver.domain.calendar;
 
-import com.example.shinhanserver.domain.PB.PB;
+import com.example.shinhanserver.domain.entity.PB;
 import com.example.shinhanserver.domain.PB.PBService;
+import com.example.shinhanserver.domain.entity.Calendar;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
