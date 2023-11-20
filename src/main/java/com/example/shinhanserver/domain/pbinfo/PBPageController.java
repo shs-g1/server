@@ -1,9 +1,8 @@
-//package com.example.shinhanserver.controller;
+//package com.example.shinhanserver.domain.pbinfo;
 //
 //
-//import com.example.shinhanserver.domain.pbinfo.PBPageDto;
+//
 //import com.example.shinhanserver.response.ResponseDto;
-//import com.example.shinhanserver.service.PBPageService;
 //import lombok.RequiredArgsConstructor;
 //import lombok.extern.slf4j.Slf4j;
 //import org.springframework.http.HttpStatus;
@@ -20,7 +19,7 @@
 //    @GetMapping
 //    public ResponseEntity<ResponseDto> getPBPage(@RequestParam("pbid") Long pbid) {
 //        try{
-//            PBPageDto.PBResponseDto pbResponseDto = pbPageService.getPBPage(pbid);
+//            PBPageDto.PBResponseDto pbResponseDto = pbPageService.getPBInfo(pbid);
 //
 //        }catch (RuntimeException e) {
 //            ResponseDto errorResponse = ResponseDto.builder()

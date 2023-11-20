@@ -1,9 +1,6 @@
 package com.example.shinhanserver.domain.form;
 
-import com.example.shinhanserver.domain.entity.Career;
-import com.example.shinhanserver.domain.entity.Certification;
-import com.example.shinhanserver.domain.entity.Education;
-import com.example.shinhanserver.domain.entity.PB;
+import com.example.shinhanserver.domain.entity.*;
 import com.example.shinhanserver.domain.PB.PBRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +19,7 @@ public class FormService {
     private final CareerRepository careerRepository;
     private final EducationRepository educationRepository;
     private final PBRepository pbRepository;
+    private final SpecializationRepository specializationRepository;
 
     @Transactional
     public FormDto.FormResponseDto saveForm(FormDto.FormRequestDto formRequestDto) {
@@ -36,6 +34,9 @@ public class FormService {
 
         // Education 저장
         saveEducations(formRequestDto.getEducations(), pb);
+
+        // Specialization 저장
+        saveSpecializations(formRequestDto.getSpecialization(), pb);
 
         // 필요에 따라 추가적인 로직 수행
 
@@ -99,6 +100,18 @@ public class FormService {
                     .build();
 
             educationRepository.save(education);
+        }
+    }
+
+    private void saveSpecializations(List<FormDto.SpecializationDto> specializationDtos, PB pb) {
+        // SpecializationDto 리스트를 Specialization 엔터티로 변환하여 저장
+        for (FormDto.SpecializationDto specializationDto : specializationDtos) {
+            Specialization specialization = Specialization.builder()
+                    .field(specializationDto.getField())
+                    .pb(pb)
+                    .build();
+
+            specializationRepository.save(specialization);
         }
     }
 }

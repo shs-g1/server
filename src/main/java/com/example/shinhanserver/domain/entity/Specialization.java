@@ -4,6 +4,7 @@ package com.example.shinhanserver.domain.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Entity
@@ -17,12 +18,9 @@ public class Specialization {
     @Column(name = "field_id")
     private Long id;
 
-    private String field1;
+    private String field;
 
-    private String field2;
-
-    private String field3;
-
-    @OneToOne(mappedBy = "specialization")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pb_id")
     private PB pb;
 }

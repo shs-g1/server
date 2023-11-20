@@ -1,5 +1,6 @@
 package com.example.shinhanserver.domain.form;
 
+import com.example.shinhanserver.domain.entity.Specialization;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,6 +21,7 @@ public class FormDto {
         private String email;
         private String image;
         private String selfIntroduction;
+        private List<SpecializationDto> specialization;
         private List<CertificationDto> certifications;
         private List<CareerDto> careers;
         private List<EducationDto> educations;
@@ -33,6 +35,14 @@ public class FormDto {
         private String name;
         private String publisher;
         private LocalDate date;
+    }
+
+    @Getter
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class SpecializationDto {
+        private String field;
     }
 
     @Getter
