@@ -21,6 +21,8 @@ public class Product {
 
   private String productName;
 
+  private double price;
+
   @OneToOne(mappedBy = "product")
   private Transaction transaction;
 
