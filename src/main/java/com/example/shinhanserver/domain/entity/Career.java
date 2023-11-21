@@ -28,7 +28,7 @@ public class Career {
 
   private String organization;
 
-  private String location;
+  private String position;
 
   private LocalDate start_date;
 

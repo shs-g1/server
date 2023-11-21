@@ -25,9 +25,6 @@ public class Product {
 
   private String code;
 
-  @OneToOne(mappedBy = "product")
-  private Transaction transaction;
-
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "account_id")
   private Account account;

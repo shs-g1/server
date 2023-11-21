@@ -16,13 +16,14 @@ public class FormDto {
     @AllArgsConstructor
     public static class FormRequestDto {
         private String name;
-        private String phone;
+        private String phoneNumber;
         private String email;
-        private String image;
-        private String selfIntroduction;
-        private List<CertificationDto> certifications;
-        private List<CareerDto> careers;
-        private List<EducationDto> educations;
+        private String imageUrl;
+        private String introduction;
+        private List<String> specializationList;
+        private List<CertificationDto> certificateList;
+        private List<CareerDto> careerList;
+        private List<EducationDto> educationList;
     }
 
     @Getter
@@ -35,13 +36,21 @@ public class FormDto {
         private LocalDate date;
     }
 
+//    @Getter
+//    @Builder
+//    @NoArgsConstructor
+//    @AllArgsConstructor
+//    public static class SpecializationDto {
+//        private String field;
+//    }
+
     @Getter
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
     public static class CareerDto {
-        private String organization;
-        private String location;
+        private String company;
+        private String department;
         private LocalDate startDate;
         private LocalDate endDate;
     }
@@ -51,8 +60,8 @@ public class FormDto {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class EducationDto {
-        private String edu;
-        private String major;
+        private String school;
+        private String department;
         private LocalDate startDate;
         private LocalDate endDate;
     }

@@ -69,7 +69,7 @@ public class QRCodeService {
             .phone(pb.getPhone())
             .email(pb.getEmail())
             .profile(pb.getProfile())
-            .specialization(pb.getSpecialization())
+            //.specialization(pb.getSpecialization())
             .introduction(pb.getIntroduction())
             .cumulativeClientCount(pb.getCumulativeClientCount())
             .cumulativeTotalAmount(pb.getCumulativeTotalAmount())

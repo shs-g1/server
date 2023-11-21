@@ -29,6 +29,7 @@ public class Account {
   @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<AccountProduct> AccountProductList = new ArrayList<>();
 
+
   private String accountNumber;
 
   private int totalAssets;

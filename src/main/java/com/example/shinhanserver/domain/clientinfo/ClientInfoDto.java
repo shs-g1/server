@@ -4,7 +4,7 @@ import com.example.shinhanserver.domain.account.AccountDto;
 import com.example.shinhanserver.domain.client.ClientDto;
 import com.example.shinhanserver.domain.portfolio.SectorPercentDto;
 import com.example.shinhanserver.domain.priceTrend.PriceTrendDto;
-import com.example.shinhanserver.transaction.TransactionCategoryDto;
+import com.example.shinhanserver.domain.transaction.TransactionCategoryDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

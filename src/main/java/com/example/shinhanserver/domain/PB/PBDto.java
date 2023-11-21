@@ -15,7 +15,7 @@ public class PBDto {
     private String phone;
     private String email;
     private String profile;
-    private Specialization specialization;
+    //private Specialization specialization;
     private String introduction;
     private int cumulativeClientCount;
     private double cumulativeTotalAmount;
