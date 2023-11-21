@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -26,7 +27,7 @@ public class PriceTrendService {
     List<PriceTrendDto> result = new ArrayList<>();
 
     for (Account account : accounts) {
-      List<Integer> labels = priceTrendRepository.findDistinctMonthsByClientId(clientId);
+      List<Integer> labels = new ArrayList<>(Arrays.asList(6, 7, 8, 9, 10, 11));
       List<Double> profitRates = new ArrayList<>();
 
       if (labels.size() > 1) {
