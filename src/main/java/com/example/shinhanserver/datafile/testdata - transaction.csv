@@ -1,4 +1,4 @@
-transaction_id,account_id,portfolio_id,product_product_id,price,amount,transaction_type,date
+transaction_id,account_id,portfolio_id,product_id,price,amount,transaction_type,transaction_date
 1,39,6,246,131800,27,매수,2013-04-12
 2,42,4,4,29720,37,매도,2020-09-08
 3,46,9,588,138760,72,매도,2020-08-01

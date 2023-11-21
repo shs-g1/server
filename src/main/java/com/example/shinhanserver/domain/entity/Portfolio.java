@@ -26,4 +26,8 @@ public class Portfolio {
 
     @OneToMany(mappedBy = "portfolio")
     private List<Transaction> transaction;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pb_id")
+    private PB pb;
 }

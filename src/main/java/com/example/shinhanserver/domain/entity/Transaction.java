@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Getter
 @Entity
@@ -27,15 +26,15 @@ public class Transaction {
   @JoinColumn(name = "portfolio_id")
   private Portfolio portfolio;
 
-  @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  private Product product;
-
-  private LocalDate date;
+  @Column(name = "product_id")
+  private Long productId; // Product ID를 저장할 변수
 
   private int price;
 
   private int amount;
 
   private String transactionType;
+
+  private LocalDate transactionDate;
 
 }
