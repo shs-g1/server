@@ -35,6 +35,8 @@ public class Client {
 
   private String type;
 
+  private String clientOption;
+
   private double initAsset;
 
   private double targetProfitRate;

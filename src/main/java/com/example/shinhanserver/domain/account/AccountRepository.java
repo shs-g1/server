@@ -1,5 +1,4 @@
-package com.example.shinhanserver.domain.Account;
-
+package com.example.shinhanserver.domain.account;
 
 import com.example.shinhanserver.domain.entity.Account;
 import com.example.shinhanserver.domain.entity.Client;
