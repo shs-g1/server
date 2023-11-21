@@ -50,9 +50,8 @@ public class PB {
   @Column(columnDefinition = "LongText")
   private String image;
 
-  @OneToOne
-  @JoinColumn(name = "calendar_id")
-  private Calendar calendar;
+  @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<Calendar> calendar;
 
   @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Specialization> specializationList = new ArrayList<>();
