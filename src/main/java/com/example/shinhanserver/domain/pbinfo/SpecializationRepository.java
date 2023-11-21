@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface SpecializationRepository extends JpaRepository<Specialization, Long> {
     List<Specialization> findAllByPb(PB pb);
+
+    List<Specialization> findByPb(PB pb);
 }
