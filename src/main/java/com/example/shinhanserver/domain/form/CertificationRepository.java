@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface CertificationRepository extends JpaRepository<Certification, Long> {
     List<Certification> findAllByPb(PB pb);
+
+    List<Certification> findByPb(PB pb);
 }

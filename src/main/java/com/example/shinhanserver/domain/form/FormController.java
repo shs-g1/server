@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,9 +34,9 @@ public class FormController {
                     .build();
 
             return ResponseEntity.ok(responseBody);
-        } catch (RuntimeException e) {
+        } catch (Exception e) {
             ResponseDto errorResponse = ResponseDto.builder()
-                    .error("폼이 정상적으로 제출되지 못했습니다.")
+                    .error(e.getMessage())
                     .build();
 
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);

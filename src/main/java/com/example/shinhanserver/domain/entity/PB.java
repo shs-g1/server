@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.*;
 
 @Getter
+@Setter
 @Entity
 @Builder
 @AllArgsConstructor
@@ -67,4 +68,5 @@ public class PB {
 
   @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Portfolio> portfolioList = new ArrayList<>();
+
 }
