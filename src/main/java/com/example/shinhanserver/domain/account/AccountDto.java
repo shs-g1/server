@@ -5,12 +5,15 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class AccountDto {
-  private String accountNumber;
+  private List<String> accountNumberAndName;
   private int totalAssets;
   private int withdrawalAmount;
+
 }
