@@ -19,32 +19,37 @@ public class PriceTrendService {
   private final PriceTrendRepository priceTrendRepository;
   private final ClientService clientService;
 
-  public PriceTrendDto getProfitRate(Long clientId) {
+  public List<PriceTrendDto> getProfitRate(Long clientId) {
     Client client = clientService.findClientById(clientId);
-
     List<Account> accounts = accountRepository.findByClient(client);
-    List<Integer> labels = priceTrendRepository.findDistinctMonthsByClientId(clientId);
-    List<Double> profitRates = new ArrayList<>();
 
-    for (int i = 1; i < labels.size(); i++) {
-      int currentMonth = labels.get(i);
-      int prevMonth = labels.get(i - 1);
+    List<PriceTrendDto> result = new ArrayList<>();
 
-      double totalAssetsPrevMonth = getTotalAssets(accounts, prevMonth);
-      double totalAssetsCurrentMonth = getTotalAssets(accounts, currentMonth);
+    for (Account account : accounts) {
+      List<Integer> labels = priceTrendRepository.findDistinctMonthsByClientId(clientId);
+      List<Double> profitRates = new ArrayList<>();
 
-      double profitRate = calculateProfitRate(totalAssetsPrevMonth, totalAssetsCurrentMonth);
-      profitRates.add(profitRate);
+      for (int i = 1; i < labels.size(); i++) {
+        int currentMonth = labels.get(i);
+        int prevMonth = labels.get(i - 1);
+
+        double totalAssetsPrevMonth = getTotalAssets(account, prevMonth);
+        double totalAssetsCurrentMonth = getTotalAssets(account, currentMonth);
+
+        double profitRate = calculateProfitRate(totalAssetsPrevMonth, totalAssetsCurrentMonth);
+        profitRates.add(profitRate);
+      }
+
+      List<Integer> labelSubList = labels.subList(1, labels.size());
+      PriceTrendDto priceTrendDto = new PriceTrendDto(labelSubList, profitRates);
+      result.add(priceTrendDto);
     }
 
-    List<Integer> labelSubList = labels.subList(1, labels.size());
-
-    return new PriceTrendDto(labelSubList, profitRates);
+    return result;
   }
 
-  private double getTotalAssets(List<Account> accounts, int month) {
-    return accounts.stream()
-            .flatMap(account -> account.getAccountProductList().stream())
+  private double getTotalAssets(Account account, int month) {
+    return account.getAccountProductList().stream()
             .mapToDouble(accountProduct -> {
               Product product = accountProduct.getProduct();
               return calculatePriceForMonth(product, month, accountProduct.getAmount());
@@ -68,4 +73,5 @@ public class PriceTrendService {
       return 0.0;
     }
   }
+
 }

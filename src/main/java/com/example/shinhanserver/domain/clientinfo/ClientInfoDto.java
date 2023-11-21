@@ -19,7 +19,7 @@ import java.util.List;
 public class ClientInfoDto {
   private ClientDto clientDto;
   private List<SectorPercentDto> portfolioDto;
-  private PriceTrendDto profitRateDto;
+  private List<PriceTrendDto> profitRateDto;
   private List<AccountDto> accountDtoList;
   private List<TransactionCategoryDto> transactionCategoryDtoList;
 }
