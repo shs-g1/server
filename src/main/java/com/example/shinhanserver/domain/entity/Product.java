@@ -35,4 +35,8 @@ public class Product {
   @OneToOne(mappedBy = "product")
   private AccountProduct accountProduct;
 
+  @OneToOne
+  @JoinColumn(name = "priceTrend_id")
+  private PriceTrend priceTrend;
+
 }

@@ -1,7 +1,7 @@
 package com.example.shinhanserver.domain.client;
 
-import com.example.shinhanserver.domain.Account.AccountDto;
-import com.example.shinhanserver.domain.Account.AccountRepository;
+import com.example.shinhanserver.domain.account.AccountDto;
+import com.example.shinhanserver.domain.account.AccountRepository;
 import com.example.shinhanserver.domain.entity.Account;
 import com.example.shinhanserver.domain.entity.Client;
 import lombok.RequiredArgsConstructor;

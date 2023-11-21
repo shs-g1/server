@@ -7,6 +7,7 @@ import com.example.shinhanserver.domain.client.ClientDto;
 import com.example.shinhanserver.domain.client.ClientService;
 import com.example.shinhanserver.domain.portfolio.PortfolioService;
 import com.example.shinhanserver.domain.portfolio.SectorPercentDto;
+import com.example.shinhanserver.domain.priceTrend.PriceTrendService;
 import com.example.shinhanserver.domain.workspace.WorkspaceDto;
 import com.example.shinhanserver.transaction.TransactionCategoryDto;
 import com.example.shinhanserver.transaction.TransactionService;
@@ -23,6 +24,7 @@ public class ClientInfoService {
   private final ClientService clientService;
   private final PortfolioService portfolioService;
   private final TransactionService transactionService;
+  private final PriceTrendService priceTrendService;
 
   @Transactional
   public ClientInfoDto getClientInformation(Long clientId) {
@@ -30,7 +32,7 @@ public class ClientInfoService {
     return ClientInfoDto.builder()
             .clientDto(clientService.getClientInfo(clientId))
             .portfolioDto(portfolioService.getPortfolio(clientId))
-//            .profitRateDto(priceTrendService.getProfitRate(clientId))
+            .profitRateDto(priceTrendService.getProfitRate(clientId))
             .accountDtoList(clientService.getAccountList(clientId))
             .transactionCategoryDtoList(transactionService.getTransaction(clientId))
             .build();

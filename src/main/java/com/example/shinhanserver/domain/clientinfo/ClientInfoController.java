@@ -1,6 +1,5 @@
 package com.example.shinhanserver.domain.clientinfo;
 
-import com.example.shinhanserver.domain.workspace.WorkspaceDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +15,8 @@ public class ClientInfoController {
 
   private final ClientInfoService clientInfoService;
 
-
   @GetMapping
-  public ResponseEntity<ClientInfoDto> getWorkSpace(@RequestParam Long clientId) {
+  public ResponseEntity<ClientInfoDto> getClientInfos(@RequestParam Long clientId) {
     return ResponseEntity.status(HttpStatus.OK).body(clientInfoService.getClientInformation(clientId));
   }
 
