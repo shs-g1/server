@@ -150,7 +150,7 @@ public class PBInfoService {
             tmp_portfolioID.add(portfolioID.get(i));
             tmp_portfolioNames.add(portfolioNames.get(i));
             tmp_principals.add(principals.get(i));
-            tmp_returns.add(principals.get(i));
+            tmp_returns.add(returns.get(i));
             tmp_cumulativeRORs.add(cumulativeRORs.get(i));
             tmp_durations.add(durations.get(i));
         }
