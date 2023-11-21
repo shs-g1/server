@@ -1,13 +1,14 @@
 package com.example.shinhanserver.domain.client;
 
-import com.example.shinhanserver.domain.Account.AccountDto;
-import com.example.shinhanserver.domain.Account.AccountRepository;
+import com.example.shinhanserver.domain.account.AccountDto;
+import com.example.shinhanserver.domain.account.AccountRepository;
 import com.example.shinhanserver.domain.entity.Account;
 import com.example.shinhanserver.domain.entity.Client;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
@@ -30,6 +31,7 @@ public class ClientService {
             .phone(client.getPhone())
             .email(client.getEmail())
             .type(client.getType())
+            .option(client.getClientOption())
             .currentProfitRate(calculateProfitRate(client.getInitAsset(), client.getCurrentTotalAssets()))
             .profits(calculateProfits(client))
             .totalAssets(client.getCurrentTotalAssets())
@@ -42,7 +44,7 @@ public class ClientService {
 
     List<AccountDto> accountDtoList = accounts.stream()
             .map(account -> AccountDto.builder()
-                    .accountNumber(account.getAccountNumber())
+                    .accountNumberAndName(Arrays.asList(account.getAccountNumber(), client.getName()))
                     .totalAssets(account.getTotalAssets())
                     .withdrawalAmount(account.getWithdrawalAmount())
                     .build())
@@ -69,4 +71,6 @@ public class ClientService {
   public Client findClientById(Long userId){
     return clientRepository.findById(userId).orElseThrow(NoSuchElementException::new);
   }
+
+
 }

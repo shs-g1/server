@@ -1,6 +1,8 @@
 package com.example.shinhanserver.domain.entity;
 
 import javax.persistence.*;
+import javax.print.attribute.Attribute;
+
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,7 +29,7 @@ public class Transaction {
   private Portfolio portfolio;
 
   @Column(name = "product_id")
-  private Long productId; // Product ID를 저장할 변수
+  private Long productId;       // Product ID를 저장할 변수
 
   private int price;
 

@@ -1,0 +1,11 @@
+client_id,email,init_asset,name,phone,target_profit_rate,type,pb_id
+1,support_staff@gmail.com,1065331862,강민우,010-5678-1234,60,안정형,1
+2,marketing@example.co.kr,1586341275,손예지,010-4321-8765,116,공격투자형,1
+3,project_manager@workplace.com,1786756007,장동휘,010-7890-3456,75,위험중립형,1
+4,customer_service@company.co.kr,1196364886,한수민,010-3210-9876,44,적극투자형,1
+5,tech_lead@example.com,158227264,윤서연,010-5432-1098,36,위험중립형,1
+6,hr_recruiter@gmail.com,1053319704,오승현,010-6789-2345,102,공격투자형,1
+7,sales_representative@company.co.kr,1445020179,권혁준,010-2109-8765,113,공격투자형,1
+8,aakar@del3vsnl.net.in,1301145098,최연리,010-0805-8501,92,위험중립형,1
+9,aamuktsar@yahoo.co.in,449558475,윤여신,010-1337-7410,59,안정형,1
+10,aas9kar@yahoo.co.in,257742925,엄영운,010-3778-0389,36,안정추구형,1

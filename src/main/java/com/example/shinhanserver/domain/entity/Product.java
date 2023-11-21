@@ -23,8 +23,17 @@ public class Product {
 
   private double price;
 
+  private String code;
+
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "account_id")
   private Account account;
+
+  @OneToOne(mappedBy = "product")
+  private AccountProduct accountProduct;
+
+  @OneToOne
+  @JoinColumn(name = "priceTrend_id")
+  private PriceTrend priceTrend;
 
 }
