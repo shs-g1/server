@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -26,23 +27,27 @@ public class PriceTrendService {
     List<PriceTrendDto> result = new ArrayList<>();
 
     for (Account account : accounts) {
-      List<Integer> labels = priceTrendRepository.findDistinctMonthsByClientId(clientId);
+      List<Integer> labels = new ArrayList<>(Arrays.asList(6, 7, 8, 9, 10, 11));
       List<Double> profitRates = new ArrayList<>();
 
-      for (int i = 1; i < labels.size(); i++) {
-        int currentMonth = labels.get(i);
-        int prevMonth = labels.get(i - 1);
+      if (labels.size() > 1) {
 
-        double totalAssetsPrevMonth = getTotalAssets(account, prevMonth);
-        double totalAssetsCurrentMonth = getTotalAssets(account, currentMonth);
+        for (int i = 1; i < labels.size(); i++) {
+          int currentMonth = labels.get(i);
+          int prevMonth = labels.get(i - 1);
 
-        double profitRate = calculateProfitRate(totalAssetsPrevMonth, totalAssetsCurrentMonth);
-        profitRates.add(profitRate);
+          double totalAssetsPrevMonth = getTotalAssets(account, prevMonth);
+          double totalAssetsCurrentMonth = getTotalAssets(account, currentMonth);
+
+          double profitRate = calculateProfitRate(totalAssetsPrevMonth, totalAssetsCurrentMonth);
+          profitRates.add(profitRate);
+        }
+
+        List<Integer> labelSubList = labels.subList(1, labels.size());
+        PriceTrendDto priceTrendDto = new PriceTrendDto(labelSubList, profitRates);
+        result.add(priceTrendDto);
+
       }
-
-      List<Integer> labelSubList = labels.subList(1, labels.size());
-      PriceTrendDto priceTrendDto = new PriceTrendDto(labelSubList, profitRates);
-      result.add(priceTrendDto);
     }
 
     return result;
