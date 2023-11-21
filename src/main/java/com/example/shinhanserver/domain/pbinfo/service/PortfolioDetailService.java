@@ -2,6 +2,7 @@ package com.example.shinhanserver.domain.pbinfo.service;
 
 import com.example.shinhanserver.domain.entity.PB;
 import com.example.shinhanserver.domain.entity.Portfolio;
+import com.example.shinhanserver.domain.entity.Product;
 import com.example.shinhanserver.domain.entity.Transaction;
 import com.example.shinhanserver.domain.pbinfo.PortfolioRepository;
 import com.example.shinhanserver.domain.pbinfo.ProductRepository;
@@ -45,10 +46,12 @@ public class PortfolioDetailService {
 
         long totalPrice = 0;
         for(Transaction buyTx: buyTxList) {
-            labels.add(buyTx.getProduct().getCategory());
-            productNames.add(buyTx.getProduct().getProductName());
+            Product product = productRepository.findById(buyTx.getProductId())
+                    .orElseThrow(() -> new EntityNotFoundException("Product not found with ID: " + buyTx.getProductId()));
+            labels.add(product.getCategory());
+            productNames.add(product.getProductName());
 
-            Transaction sellTx = transactionRepository.findByPortfolioAndTransactionTypeAndProduct(portfolio, "매수", buyTx.getProduct())
+            Transaction sellTx = transactionRepository.findByPortfolioAndTransactionTypeAndProductId(portfolio, "매도", buyTx.getProductId())
                     .orElseThrow(() -> new EntityNotFoundException("Transaction not found with Portfolio, TrType, Product"));
 
             LocalDate startDate = buyTx.getTransactionDate();
@@ -65,7 +68,12 @@ public class PortfolioDetailService {
         }
 
         for(Transaction buyTx: buyTxList) {
-            ratios.add(Math.round((buyTx.getPrice() / totalPrice) * 1000.0) / 10.0);
+//            System.out.println("total Price: " + totalPrice);
+//            System.out.println("Ratio: " + Math.round((buyTx.getPrice() / (double)totalPrice) * 1000.0) / 10.0);
+//            System.out.println("buyTx Price: " + buyTx.getPrice());
+//            System.out.println("buyTx/total Price: " + (buyTx.getPrice() / totalPrice));
+
+            ratios.add(Math.round((buyTx.getPrice() / (double)totalPrice) * 1000.0) / 10.0);
         }
 
         double tmp_total = 0.0;

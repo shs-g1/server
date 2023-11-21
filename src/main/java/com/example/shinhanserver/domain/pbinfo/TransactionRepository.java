@@ -10,5 +10,5 @@ import java.util.Optional;
 
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
     List<Transaction> findAllByPortfolioAndTransactionType(Portfolio portfolio, String transactionType);
-    Optional<Transaction> findByPortfolioAndTransactionTypeAndProduct(Portfolio portfolio, String transactionType, Product product);
+    Optional<Transaction> findByPortfolioAndTransactionTypeAndProductId(Portfolio portfolio, String transactionType, Long productId);
 }

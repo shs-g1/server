@@ -23,9 +23,6 @@ public class Product {
 
   private double price;
 
-  @OneToOne(mappedBy = "product")
-  private Transaction transaction;
-
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "account_id")
   private Account account;
