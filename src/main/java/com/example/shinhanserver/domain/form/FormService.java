@@ -2,6 +2,7 @@ package com.example.shinhanserver.domain.form;
 
 import com.example.shinhanserver.domain.entity.*;
 import com.example.shinhanserver.domain.PB.PBRepository;
+import com.example.shinhanserver.domain.pbinfo.SpecializationRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
