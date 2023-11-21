@@ -15,5 +15,6 @@ public interface PriceTrendRepository extends JpaRepository<PriceTrend, Long> {
   @Query("SELECT DISTINCT pt.month FROM PriceTrend pt JOIN pt.product p JOIN p.account a JOIN a.client c WHERE c.id = :clientId")
   List<Integer> findDistinctMonthsByClientId(@Param("clientId") Long clientId);
 
+
   List<PriceTrend> findByProductAndMonth(Product product, int month);
 }

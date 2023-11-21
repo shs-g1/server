@@ -15,6 +15,7 @@ public class FormDto {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class FormRequestDto {
+        private Long id;
         private String name;
         private String phoneNumber;
         private String email;
