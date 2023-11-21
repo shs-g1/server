@@ -1,7 +1,7 @@
 package com.example.shinhanserver.domain.portfolio;
 
 
-import com.example.shinhanserver.domain.Account.AccountRepository;
+import com.example.shinhanserver.domain.account.AccountRepository;
 import com.example.shinhanserver.domain.client.ClientService;
 import com.example.shinhanserver.domain.entity.Account;
 import com.example.shinhanserver.domain.entity.AccountProduct;

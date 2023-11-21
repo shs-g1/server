@@ -1,6 +1,5 @@
 package com.example.shinhanserver.transaction;
 
-import com.example.shinhanserver.domain.Account.AccountRepository;
 import com.example.shinhanserver.domain.client.ClientService;
 import com.example.shinhanserver.domain.entity.Client;
 import com.example.shinhanserver.domain.entity.Transaction;
@@ -16,7 +15,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class TransactionService {
-  
+
   private final ClientService clientService;
 
   public List<TransactionCategoryDto> getTransaction(Long clientId){

@@ -1,4 +1,4 @@
-package com.example.shinhanserver.domain.Account;
+package com.example.shinhanserver.domain.account;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
