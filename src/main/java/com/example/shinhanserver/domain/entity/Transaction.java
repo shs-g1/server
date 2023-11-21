@@ -5,6 +5,9 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -26,6 +29,8 @@ public class Transaction {
 
   @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   private Product product;
+
+  private LocalDate date;
 
   private int price;
 
