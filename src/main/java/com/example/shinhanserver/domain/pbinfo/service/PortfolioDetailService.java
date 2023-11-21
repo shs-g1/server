@@ -62,7 +62,7 @@ public class PortfolioDetailService {
 
             realizedGainLoss.add((long) sellTx.getPrice() - buyTx.getPrice());
             evaluatePrice.add((long) sellTx.getPrice());
-            accumRoRs.add(((sellTx.getPrice()-buyTx.getPrice())/buyTx.getPrice() * 100.0));
+            accumRoRs.add(((sellTx.getPrice()-buyTx.getPrice())/(double)buyTx.getPrice() * 100.0));
             durations.add(years + "년 "+ months + "개월");
             totalPrice += buyTx.getPrice();
         }

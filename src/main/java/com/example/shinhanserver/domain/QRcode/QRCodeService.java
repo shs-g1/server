@@ -81,6 +81,6 @@ public class QRCodeService {
   }
 
   private String generateApiURL(Long pbId) {
-    return "http://localhost:8080/api/info/" + pbId;
+    return "http://133.186.153.215/client/" + pbId;
   }
 }
