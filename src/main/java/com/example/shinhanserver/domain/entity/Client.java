@@ -35,7 +35,7 @@ public class Client {
 
   private String type;
 
-  private String option;
+  private String clientOption;
 
   private double initAsset;
 

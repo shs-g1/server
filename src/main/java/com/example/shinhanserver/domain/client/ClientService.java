@@ -31,7 +31,7 @@ public class ClientService {
             .phone(client.getPhone())
             .email(client.getEmail())
             .type(client.getType())
-            .option(client.getOption())
+            .option(client.getClientOption())
             .currentProfitRate(calculateProfitRate(client.getInitAsset(), client.getCurrentTotalAssets()))
             .profits(calculateProfits(client))
             .totalAssets(client.getCurrentTotalAssets())
