@@ -27,17 +27,18 @@ public class FormService {
         // PB 저장
         PB pb = savePB(formRequestDto);
 
+        // Specialization 저장
+        saveSpecializations(formRequestDto.getSpecializationList(), pb);
+
         // Certification 저장
-        saveCertifications(formRequestDto.getCertifications(), pb);
+        saveCertifications(formRequestDto.getCertificateList(), pb);
 
         // Career 저장
-        saveCareers(formRequestDto.getCareers(), pb);
+        saveCareers(formRequestDto.getCareerList(), pb);
 
         // Education 저장
-        saveEducations(formRequestDto.getEducations(), pb);
+        saveEducations(formRequestDto.getEducationList(), pb);
 
-        // Specialization 저장
-        saveSpecializations(formRequestDto.getSpecialization(), pb);
 
         // 필요에 따라 추가적인 로직 수행
 
@@ -51,11 +52,12 @@ public class FormService {
         // formRequestDto에서 필요한 정보를 추출하여 PB 엔터티에 저장
         PB pb = PB.builder()
                 .name(formRequestDto.getName())
-                .phone(formRequestDto.getPhone())
+                .phone(formRequestDto.getPhoneNumber())
                 .email(formRequestDto.getEmail())
-                .image(formRequestDto.getImage())
-                .introduction(formRequestDto.getSelfIntroduction())
+                .image(formRequestDto.getImageUrl())
+                .introduction(formRequestDto.getIntroduction())
                 .build();
+
 
         // PB 엔터티를 저장
         return pbRepository.save(pb);
@@ -79,8 +81,8 @@ public class FormService {
         // CareerDto 리스트를 Career 엔터티로 변환하여 저장
         for (FormDto.CareerDto careerDto : careerDtos) {
             Career career = Career.builder()
-                    .organization(careerDto.getOrganization())
-                    .position(careerDto.getPosition())
+                    .organization(careerDto.getCompany())
+                    .position(careerDto.getDepartment())
                     .start_date(careerDto.getStartDate())
                     .end_date(careerDto.getEndDate())
                     .pb(pb)
@@ -94,8 +96,8 @@ public class FormService {
         // EducationDto 리스트를 Education 엔터티로 변환하여 저장
         for (FormDto.EducationDto educationDto : educationDtos) {
             Education education = Education.builder()
-                    .edu(educationDto.getEdu())
-                    .major(educationDto.getMajor())
+                    .edu(educationDto.getSchool())
+                    .major(educationDto.getDepartment())
                     .start_date(educationDto.getStartDate())
                     .end_date(educationDto.getEndDate())
                     .pb(pb)
@@ -105,11 +107,11 @@ public class FormService {
         }
     }
 
-    private void saveSpecializations(List<FormDto.SpecializationDto> specializationDtos, PB pb) {
+    private void saveSpecializations(List<String> specializationDtos, PB pb) {
         // SpecializationDto 리스트를 Specialization 엔터티로 변환하여 저장
-        for (FormDto.SpecializationDto specializationDto : specializationDtos) {
+        for (String specializationDto : specializationDtos) {
             Specialization specialization = Specialization.builder()
-                    .field(specializationDto.getField())
+                    .field(specializationDto)
                     .pb(pb)
                     .build();
 

@@ -47,6 +47,7 @@ public class PB {
 
   private String loginPw;
 
+  @Column(columnDefinition = "LongText")
   private String image;
 
   @OneToOne
