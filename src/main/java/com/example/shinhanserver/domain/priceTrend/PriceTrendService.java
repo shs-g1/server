@@ -29,20 +29,24 @@ public class PriceTrendService {
       List<Integer> labels = priceTrendRepository.findDistinctMonthsByClientId(clientId);
       List<Double> profitRates = new ArrayList<>();
 
-      for (int i = 1; i < labels.size(); i++) {
-        int currentMonth = labels.get(i);
-        int prevMonth = labels.get(i - 1);
+      if (labels.size() > 1) {
 
-        double totalAssetsPrevMonth = getTotalAssets(account, prevMonth);
-        double totalAssetsCurrentMonth = getTotalAssets(account, currentMonth);
+        for (int i = 1; i < labels.size(); i++) {
+          int currentMonth = labels.get(i);
+          int prevMonth = labels.get(i - 1);
 
-        double profitRate = calculateProfitRate(totalAssetsPrevMonth, totalAssetsCurrentMonth);
-        profitRates.add(profitRate);
+          double totalAssetsPrevMonth = getTotalAssets(account, prevMonth);
+          double totalAssetsCurrentMonth = getTotalAssets(account, currentMonth);
+
+          double profitRate = calculateProfitRate(totalAssetsPrevMonth, totalAssetsCurrentMonth);
+          profitRates.add(profitRate);
+        }
+
+        List<Integer> labelSubList = labels.subList(1, labels.size());
+        PriceTrendDto priceTrendDto = new PriceTrendDto(labelSubList, profitRates);
+        result.add(priceTrendDto);
+
       }
-
-      List<Integer> labelSubList = labels.subList(1, labels.size());
-      PriceTrendDto priceTrendDto = new PriceTrendDto(labelSubList, profitRates);
-      result.add(priceTrendDto);
     }
 
     return result;

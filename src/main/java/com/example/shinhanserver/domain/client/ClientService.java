@@ -68,8 +68,9 @@ public class ClientService {
     return ((currentTotalAsset - initialTotalAsset) / initialTotalAsset) * 100;
   }
 
-  public Client findClientById(Long userId){
-    return clientRepository.findById(userId).orElseThrow(NoSuchElementException::new);
+  public Client findClientById(Long userId) {
+    return clientRepository.findById(userId)
+            .orElseThrow(() -> new NoSuchElementException("해당 ID를 가지고 있는 유저를 찾을 수 없다."));
   }
 
 
