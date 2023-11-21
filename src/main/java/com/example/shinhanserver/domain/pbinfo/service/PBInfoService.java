@@ -120,7 +120,7 @@ public class PBInfoService {
                 }
                 principals.add(principal);
                 returns.add(sellPrice-principal);
-                cumulativeRORs.add(((sellPrice-principal)/principal * 100.0));
+                cumulativeRORs.add(((sellPrice-principal)/(double)principal * 100.0));
 
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 String formattedStart = oldestStartDate.format(formatter);

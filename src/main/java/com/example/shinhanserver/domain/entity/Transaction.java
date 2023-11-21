@@ -29,8 +29,6 @@ public class Transaction {
   @Column(name = "product_id")
   private Long productId; // Product ID를 저장할 변수
 
-  private LocalDate date;
-
   private int price;
 
   private int amount;
