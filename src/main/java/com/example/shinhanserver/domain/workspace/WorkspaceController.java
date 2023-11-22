@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RequestMapping("/workspace")
-@Controller
+@RestController
 public class WorkspaceController {
 
   private final CalendarService calendarService;
