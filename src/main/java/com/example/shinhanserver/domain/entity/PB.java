@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.*;
 
 @Getter
+@Setter
 @Entity
 @Builder
 @AllArgsConstructor
@@ -47,11 +48,11 @@ public class PB {
 
   private String loginPw;
 
+  @Column(columnDefinition = "LongText")
   private String image;
 
-  @OneToOne
-  @JoinColumn(name = "calendar_id")
-  private Calendar calendar;
+  @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<Calendar> calendar;
 
   @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Specialization> specializationList = new ArrayList<>();
@@ -60,8 +61,12 @@ public class PB {
   private List<Education> EducationList = new ArrayList<>();
 
   @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
-  private List<Career> carrerList = new ArrayList<>();
+  private List<Career> careerList = new ArrayList<>();
 
   @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Certification> certificationList = new ArrayList<>();
+
+  @OneToMany(mappedBy = "pb", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<Portfolio> portfolioList = new ArrayList<>();
+
 }

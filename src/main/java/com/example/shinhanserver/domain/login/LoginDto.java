@@ -13,6 +13,7 @@ public class LoginDto {
     @AllArgsConstructor
     public static class LoginResponseDto{
         private Long pbId;
+        private String pbName;
         private String message;
     }
 

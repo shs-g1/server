@@ -1,6 +1,7 @@
 package com.example.shinhanserver.domain.entity;
 
 import javax.persistence.*;
+
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,9 +19,21 @@ public class Product {
 
   private String category;
 
-  private String product_name;
+  private String productName;
+
+  private double price;
+
+  private String code;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "account_id")
+  private Account account;
 
   @OneToOne(mappedBy = "product")
-  private Transaction transaction;
+  private AccountProduct accountProduct;
+
+  @OneToOne
+  @JoinColumn(name = "priceTrend_id")
+  private PriceTrend priceTrend;
 
 }
